@@ -1,5 +1,4 @@
 package com.quahk;
-import java.util.Scanner;
 
 public class Dog {
     String name;
