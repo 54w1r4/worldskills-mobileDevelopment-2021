@@ -16,6 +16,7 @@ struct ContentView: View {
     @State var selectedRegion = ""
     @State var showingAlert = false
     @State var activeAlert: typeOfError = .firstNameMissing
+    @State var successMsg = ""
     
     enum typeOfError {
         case firstNameMissing
@@ -47,6 +48,7 @@ struct ContentView: View {
             self.activeAlert = .regionMissing
             showingAlert = true
         } else {
+            successMsg = "Hello, " + firstName + lastName + "! \n" + "You're from " + selectedRegion + ". \n\n" + "Your phone number is " + phone + "\n" + "and email is " + email + "."
             self.activeAlert = .noError
             showingAlert = true
         }
@@ -112,7 +114,7 @@ struct ContentView: View {
                     return Alert(title: Text("Oops"), message: Text("Please select your region!"))
                     
                 case .noError:
-                    return Alert(title: Text("Success"), message: Text("Success"))
+                    return Alert(title: Text("Success"), message: Text(successMsg))
                     
                 
             }
@@ -122,6 +124,8 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        Group {
+            ContentView()
+        }
     }
 }
