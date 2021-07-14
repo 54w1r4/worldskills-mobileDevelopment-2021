@@ -97,7 +97,7 @@ struct ContentView: View {
                     commit(firstNumber, secondNumber, .Add)
                 }, content: {
                     Image(systemName: "plus")
-                }).background(LinearGradient(gradient: /*@START_MENU_TOKEN@*/Gradient(colors: [Color.red, Color.blue])/*@END_MENU_TOKEN@*/, startPoint: .leading, endPoint: .trailing))
+                })
                 
                 CustomButton(handler: {
                     commit(firstNumber, secondNumber, .Subtract)
@@ -160,7 +160,7 @@ struct CustomButton<Content: View>: View {
         Button(action: handler, label: content)
             .font(.title)
             .frame(width: 54, height: 54)
-            //.background(Color.blue)
+            .background(RadialGradient(gradient: Gradient(colors: [.red, .yellow, .green, .blue, .purple]), center: .center, startRadius: 1, endRadius: 200))
             .foregroundColor(.white)
             .cornerRadius(27.0)
     }
