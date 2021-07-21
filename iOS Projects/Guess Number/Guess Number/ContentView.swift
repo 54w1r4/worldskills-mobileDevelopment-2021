@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     let maxTries = 5
-    @State var tries = 3
+    @State var tries = 5
     @State var userChoice = ""
     @State var showWinning = false
     @State var showGameOver = false
