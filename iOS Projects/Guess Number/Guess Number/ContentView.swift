@@ -9,7 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     
-    let maxTries = 3
+    let maxTries = 5
+    @State var tries = 3
     @State var userChoice = ""
     @State var showWinning = false
     @State var showGameOver = false
@@ -36,8 +37,14 @@ struct ContentView: View {
                 HStack {
                     
                     ForEach(0 ..< maxTries) { index in
-                        Image(systemName: "heart.fill")
-                            .foregroundColor(.red)
+                        if (tries > index) {
+                            Image(systemName: "heart.fill")
+                                .foregroundColor(.red)
+                        } else {
+                            Image(systemName: "heart.fill")
+                                .foregroundColor(.gray)
+                        }
+                        
                     }
                     
                     Spacer()
@@ -131,6 +138,16 @@ struct ContentView: View {
     }
     func checkNum(_ userNumber: String) -> Void {
         if let userNumber = Int(userChoice) {
+            if (userNumber <= endingNumber) && (userNumber >= startingNumber) {
+                if (userNumber != correctNumber) && (tries > 1) {
+                    tries -= 1
+                } else if (userNumber != correctNumber) && (tries == 1) {
+                    showGameOver = true
+                } else {
+                    showWinning = true
+                }
+            }
+        } else {
             
         }
     }
