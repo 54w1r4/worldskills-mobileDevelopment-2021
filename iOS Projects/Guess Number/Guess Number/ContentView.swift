@@ -7,16 +7,32 @@
 
 import SwiftUI
 
+class idk{
+    @Published var CN=25
+    @Published var startingNumber = 1
+    @Published var endingNumber = 100
+}
 struct ContentView: View {
+    
+//    let textValueBinding = Binding<String>(get: {
+//        self.enteredTextValue
+//     }, set: {
+//        self.enteredTextValue = $0
+//
+//     })
     
     let maxTries = 5
     @State var tries = 5
     @State var userChoice = ""
-    @State var showWinning = false
-    @State var showGameOver = false
-    @State var startingNumber = 1
-    @State var endingNumber = 100
-    @State var correctNumber = Int.random(in: 0..<100)
+    @State var showResult = false
+    @State var activeResult: typeOfResult = .GameOver
+
+    @State var correctNumber = Int.random(in: 1..<100)
+    
+    enum typeOfResult {
+        case Win
+        case GameOver
+    }
     
     let greenBackground = [
         Color(red: 234.0/255.0, green: 255.0/255.0, blue: 207.0/255.0),
@@ -115,7 +131,7 @@ struct ContentView: View {
                                 .padding(.bottom, 68.0)
                                 
                             
-                            Text(String(endingNumber))
+                            Text(String(correctNumber))
                                 .font(.system(size: 60.0))
                                 .frame(width: 103, height: 70)
                                 .padding(.top, 9.0)
@@ -133,8 +149,19 @@ struct ContentView: View {
                           
             }
                
-        }.fullScreenCover(isPresented: $showGameOver, content: {
-            GameOverView(correctNumber: String(correctNumber))
+        }.fullScreenCover(isPresented: $showResult, content: {
+            
+            switch activeResult {
+                case .Win:
+                    WinView()
+                
+                case .GameOver:
+//                    GameOverView(correctNumber: String(Int.random(in: startingNumber..<endingNumber)))
+                    GameOverView(correctNumber: String(correctNumber))
+                    //correctNumber = Int.random(in: 1..<100)
+            }
+            
+            
         })
             
     }
@@ -143,16 +170,22 @@ struct ContentView: View {
             if (userNumber <= endingNumber) && (userNumber >= startingNumber) {
                 if (userNumber != correctNumber) && (tries > 1) {
                     tries -= 1
-                } else if (userNumber != correctNumber) && (tries == 1) {
-                    showGameOver = true
+                } else if (userNumber != correctNumber) && (tries <= 1) {
+                    activeResult = .GameOver
+                    showResult = true
                     tries = 5;
+                    //correctNumber = Int.random(in: startingNumber..<endingNumber)
+                    //showResult = false
                     //GameOverView(message: String(correctNumber))
                     
                 } else {
-                    showWinning = true
+                    activeResult = .Win
+                    showResult = true
+                    tries = 5
+                    correctNumber = Int.random(in: 1..<100)
                 }
             } else {
-                //gameOverView()
+                // alert
             }
         } else {
             

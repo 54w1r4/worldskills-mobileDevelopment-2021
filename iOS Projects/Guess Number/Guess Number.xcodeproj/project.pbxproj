@@ -14,6 +14,8 @@
 		741DDD27269F1A7A00380A42 /* Guess_NumberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741DDD26269F1A7A00380A42 /* Guess_NumberTests.swift */; };
 		741DDD32269F1A7A00380A42 /* Guess_NumberUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741DDD31269F1A7A00380A42 /* Guess_NumberUITests.swift */; };
 		7455065B26B175E400A7BE5B /* GameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7455065A26B175E400A7BE5B /* GameOverView.swift */; };
+		7455066026B187BE00A7BE5B /* WinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7455065F26B187BE00A7BE5B /* WinView.swift */; };
+		7455066526B19AC600A7BE5B /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7455066426B19AC600A7BE5B /* SwiftUIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		741DDD31269F1A7A00380A42 /* Guess_NumberUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Guess_NumberUITests.swift; sourceTree = "<group>"; };
 		741DDD33269F1A7A00380A42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7455065A26B175E400A7BE5B /* GameOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverView.swift; sourceTree = "<group>"; };
+		7455065F26B187BE00A7BE5B /* WinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinView.swift; sourceTree = "<group>"; };
+		7455066426B19AC600A7BE5B /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,8 +105,10 @@
 				741DDD16269F1A7600380A42 /* ContentView.swift */,
 				7455065A26B175E400A7BE5B /* GameOverView.swift */,
 				741DDD18269F1A7A00380A42 /* Assets.xcassets */,
+				7455066426B19AC600A7BE5B /* SwiftUIView.swift */,
 				741DDD1D269F1A7A00380A42 /* Info.plist */,
 				741DDD1A269F1A7A00380A42 /* Preview Content */,
+				7455065F26B187BE00A7BE5B /* WinView.swift */,
 			);
 			path = "Guess Number";
 			sourceTree = "<group>";
@@ -263,8 +269,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				741DDD17269F1A7600380A42 /* ContentView.swift in Sources */,
+				7455066026B187BE00A7BE5B /* WinView.swift in Sources */,
 				7455065B26B175E400A7BE5B /* GameOverView.swift in Sources */,
 				741DDD15269F1A7600380A42 /* Guess_NumberApp.swift in Sources */,
+				7455066526B19AC600A7BE5B /* SwiftUIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
