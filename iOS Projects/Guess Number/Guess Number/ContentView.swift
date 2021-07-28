@@ -16,7 +16,7 @@ struct ContentView: View {
     @State var showGameOver = false
     @State var startingNumber = 1
     @State var endingNumber = 100
-    @State var correctNumber = 25
+    @State var correctNumber = Int.random(in: 0..<100)
     
     let greenBackground = [
         Color(red: 234.0/255.0, green: 255.0/255.0, blue: 207.0/255.0),
@@ -67,7 +67,7 @@ struct ContentView: View {
                                 .padding(.trailing, 208.0)
                                 .padding(.bottom, 68.0)
                             
-                            Text("1")
+                            Text(String(startingNumber))
                                 .font(.system(size: 60.0))
                                 .frame(width: 35, height: 70)
                                 .padding(.top, 7.0)
@@ -115,7 +115,7 @@ struct ContentView: View {
                                 .padding(.bottom, 68.0)
                                 
                             
-                            Text("100")
+                            Text(String(endingNumber))
                                 .font(.system(size: 60.0))
                                 .frame(width: 103, height: 70)
                                 .padding(.top, 9.0)
@@ -133,7 +133,9 @@ struct ContentView: View {
                           
             }
                
-        }
+        }.fullScreenCover(isPresented: $showGameOver, content: {
+            GameOverView(correctNumber: String(correctNumber))
+        })
             
     }
     func checkNum(_ userNumber: String) -> Void {
@@ -143,9 +145,14 @@ struct ContentView: View {
                     tries -= 1
                 } else if (userNumber != correctNumber) && (tries == 1) {
                     showGameOver = true
+                    tries = 5;
+                    //GameOverView(message: String(correctNumber))
+                    
                 } else {
                     showWinning = true
                 }
+            } else {
+                //gameOverView()
             }
         } else {
             

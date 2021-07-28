@@ -13,6 +13,7 @@
 		741DDD1C269F1A7A00380A42 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 741DDD1B269F1A7A00380A42 /* Preview Assets.xcassets */; };
 		741DDD27269F1A7A00380A42 /* Guess_NumberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741DDD26269F1A7A00380A42 /* Guess_NumberTests.swift */; };
 		741DDD32269F1A7A00380A42 /* Guess_NumberUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741DDD31269F1A7A00380A42 /* Guess_NumberUITests.swift */; };
+		7455065B26B175E400A7BE5B /* GameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7455065A26B175E400A7BE5B /* GameOverView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		741DDD2D269F1A7A00380A42 /* Guess NumberUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Guess NumberUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		741DDD31269F1A7A00380A42 /* Guess_NumberUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Guess_NumberUITests.swift; sourceTree = "<group>"; };
 		741DDD33269F1A7A00380A42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7455065A26B175E400A7BE5B /* GameOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 			children = (
 				741DDD14269F1A7600380A42 /* Guess_NumberApp.swift */,
 				741DDD16269F1A7600380A42 /* ContentView.swift */,
+				7455065A26B175E400A7BE5B /* GameOverView.swift */,
 				741DDD18269F1A7A00380A42 /* Assets.xcassets */,
 				741DDD1D269F1A7A00380A42 /* Info.plist */,
 				741DDD1A269F1A7A00380A42 /* Preview Content */,
@@ -260,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				741DDD17269F1A7600380A42 /* ContentView.swift in Sources */,
+				7455065B26B175E400A7BE5B /* GameOverView.swift in Sources */,
 				741DDD15269F1A7600380A42 /* Guess_NumberApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
