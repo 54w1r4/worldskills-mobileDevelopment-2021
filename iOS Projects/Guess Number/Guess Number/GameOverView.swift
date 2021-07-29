@@ -21,7 +21,7 @@ struct GameOverView: View {
     var body: some View {
         
         ZStack {
-            idk.CN =Int.random(in: startingNumber..<endingNumber)
+            
             Rectangle().fill(LinearGradient(gradient: Gradient(colors: grayBackground), startPoint: .top, endPoint: .bottom))
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
                 .edgesIgnoringSafeArea(.all)

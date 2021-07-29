@@ -19,7 +19,7 @@ struct WinView: View {
     
     var body: some View {
         ZStack {
-            idk.CN = Int.random(in: idk.startingNumber..< idk.endingNumber)
+            
             Rectangle().fill(LinearGradient(gradient: Gradient(colors: blueBackground), startPoint: .top, endPoint: .bottom))
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
                 .edgesIgnoringSafeArea(.all)

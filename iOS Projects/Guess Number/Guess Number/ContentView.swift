@@ -7,11 +7,12 @@
 
 import SwiftUI
 
-class idk{
-    @Published var CN=25
-    @Published var startingNumber = 1
-    @Published var endingNumber = 100
-}
+//class idk{
+//    @Published var CN=25
+//    @Published var startingNumber = 1
+//    @Published var endingNumber = 100
+//}
+
 struct ContentView: View {
     
 //    let textValueBinding = Binding<String>(get: {
@@ -25,13 +26,21 @@ struct ContentView: View {
     @State var tries = 5
     @State var userChoice = ""
     @State var showResult = false
+    @State var showAlert = false
+    @State var startingNumber = 1
+    @State var endingNumber = 500
     @State var activeResult: typeOfResult = .GameOver
-
+    @State var activeAlert: typeOfError = .emptyValue
     @State var correctNumber = Int.random(in: 1..<100)
     
     enum typeOfResult {
         case Win
         case GameOver
+    }
+    
+    enum typeOfError {
+        case notInRange
+        case emptyValue
     }
     
     let greenBackground = [
@@ -131,9 +140,9 @@ struct ContentView: View {
                                 .padding(.bottom, 68.0)
                                 
                             
-                            Text(String(correctNumber))
+                            Text(String(endingNumber))
                                 .font(.system(size: 60.0))
-                                .frame(width: 103, height: 70)
+//                                .frame(width: 103, height: 70)
                                 .padding(.top, 9.0)
                                 
                         }
@@ -156,11 +165,25 @@ struct ContentView: View {
                     WinView()
                 
                 case .GameOver:
-//                    GameOverView(correctNumber: String(Int.random(in: startingNumber..<endingNumber)))
-                    GameOverView(correctNumber: String(correctNumber))
+                    GameOverView(correctNumber: String(Int.random(in: startingNumber..<endingNumber)))
+//                    GameOverView(correctNumber: String(correctNumber))
                     //correctNumber = Int.random(in: 1..<100)
             }
             
+            
+        }).onAppear(perform: {
+            correctNumber = Int.random(in: startingNumber..<endingNumber)
+        }).alert(isPresented: $showAlert, content: {
+            
+            switch activeAlert {
+                
+                case .emptyValue:
+                    return Alert(title: Text("Oops!"), message: Text("You haven't entered any number..."))
+                    
+                case .notInRange:
+                    return Alert.init(title: Text("Oops!"), message: Text("Please enter a number between ") + String(startingNumber) + Text(" to ") + String(endingNumber))
+            }
+                
             
         })
             
@@ -174,6 +197,7 @@ struct ContentView: View {
                     activeResult = .GameOver
                     showResult = true
                     tries = 5;
+                    userChoice = ""
                     //correctNumber = Int.random(in: startingNumber..<endingNumber)
                     //showResult = false
                     //GameOverView(message: String(correctNumber))
@@ -182,13 +206,17 @@ struct ContentView: View {
                     activeResult = .Win
                     showResult = true
                     tries = 5
-                    correctNumber = Int.random(in: 1..<100)
+                    correctNumber = Int.random(in: startingNumber..<endingNumber)
+                    userChoice = ""
                 }
             } else {
                 // alert
+                activeAlert = .notInRange
+                showAlert = true
             }
         } else {
-            
+            activeAlert = .notInRange
+            showAlert = true
         }
     }
 }
