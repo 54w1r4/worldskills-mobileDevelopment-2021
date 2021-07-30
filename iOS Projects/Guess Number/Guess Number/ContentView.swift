@@ -181,7 +181,7 @@ struct ContentView: View {
                     return Alert(title: Text("Oops!"), message: Text("You haven't entered any number..."))
                     
                 case .notInRange:
-                    return Alert.init(title: Text("Oops!"), message: Text("Please enter a number between ") + String(startingNumber) + Text(" to ") + String(endingNumber))
+                    return Alert.init(title: Text("Oops!"), message: Text("Please enter a number between ") + Text(String(startingNumber)) + Text(" to ") + Text(String(endingNumber)) + Text("."))
             }
                 
             
@@ -210,12 +210,13 @@ struct ContentView: View {
                     userChoice = ""
                 }
             } else {
-                // alert
+                // alert number is not in range.
                 activeAlert = .notInRange
                 showAlert = true
             }
-        } else {
-            activeAlert = .notInRange
+        }  else {
+            // alert user haven't type anything
+            activeAlert = .emptyValue
             showAlert = true
         }
     }
