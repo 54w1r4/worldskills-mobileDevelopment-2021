@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  MemberForm
 //
-//  Created by in112-05-2021-cm on 14/07/2021.
+//  Created by Edward Swalker on 14/07/2021.
 //
 
 import SwiftUI
@@ -48,7 +48,7 @@ struct ContentView: View {
             self.activeAlert = .regionMissing
             showingAlert = true
         } else {
-            successMsg = "Hello, " + firstName + lastName + "! \n" + "You're from " + selectedRegion + ". \n\n" + "Your phone number is " + phone + "\n" + "and email is " + email + "."
+            successMsg = "Hello, " + firstName + " " + lastName + "! \n" + "You're from " + selectedRegion + ". \n\n" + "Your phone number is " + phone + "\n" + "and email is " + email + "."
             self.activeAlert = .noError
             showingAlert = true
         }
